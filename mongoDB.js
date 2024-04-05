@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
-const mongoURI = "mongodb+srv://Shubham_234:123456skT@cluster0.ld2mebh.mongodb.net/Hackathon";
 
 async function mongoDB() {
     try {
-        await mongoose.connect(mongoURI);
+        await mongoose.connect(process.env.MONGODB_URI||"mongodb+srv://Shubham_234:123456skT@cluster0.ld2mebh.mongodb.net/Hackathon");
         console.log("Connected to MongoDB");
         await fetched_data(); // Await the fetched_data function call
     } catch (error) {
